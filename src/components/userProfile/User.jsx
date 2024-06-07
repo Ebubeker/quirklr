@@ -52,7 +52,7 @@ export const User = ({ children, userData, profile=false }) => {
             <p className={styles.bio}>{userData.bio}</p>
           </div>
         </div>
-        {!profile ? (
+        {!profile && !(userData.id === currentUser.id) ? (
           <button
             className={aFollower ? styles.unfollowButton : styles.followButton}
             onClick={(e) => (aFollower ? handleUnfollow(e) : handleFollow(e))}

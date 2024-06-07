@@ -22,7 +22,7 @@ const Navbar = () => {
         {/* <div> */}
         {userData ? (
           <div className={styles.profile}>
-            <Link to="profile">
+            <Link to="/profile" >
               <img
                 src={userData.profilePic}
                 alt="Profile"

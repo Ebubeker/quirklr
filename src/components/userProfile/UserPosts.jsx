@@ -6,8 +6,6 @@ import styles from "./userStyles.module.css"
 const UserPosts = ({userId}) => {
   const { posts } = useGetPostsByUserId(userId);
 
-  console.log(posts, userId)
-
   return (
     <div className={styles.gridCard}>
       {posts.length ? posts.map((post) => (
