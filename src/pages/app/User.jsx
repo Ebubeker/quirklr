@@ -4,6 +4,9 @@ import { useGetUserById, useCheckIfIFollow } from "../../lib/hooks/userHooks";
 import { Context } from "../../context/AuthContext";
 import { follow, unfollow } from "../../lib/api/user";
 
+import {User as UserComponent} from "../../components/userProfile/User";
+import UserPosts from "../../components/userProfile/UserPosts";
+
 const User = () => {
   const { userId } = useParams();
   const { userData: currentUser } = useContext(Context);
@@ -14,30 +17,16 @@ const User = () => {
     userId
   );
 
-  const handleFollow = (e) => {
-    e.preventDefault();
-    follow(currentUser.id, userId);
-  };
-
-  const handleUnfollow = (e) => {
-    e.preventDefault();
-    unfollow(currentUser.id, userId);
-  };
+  
 
   if (!userData) return "loading...";
 
   return (
-    <>
-      <img src={userData.profilePic} alt="" width={150} height={150} />
-      <p>{userData.username}</p>
-      <p>{userData.name}</p>
-      <p>{userData.bio}</p>
-      {aFollower ? (
-        <button onClick={handleUnfollow}>Unfollow</button>
-      ) : (
-        <button onClick={handleFollow}>Follow</button>
-      )}
-    </>
+    <div style={{ minHeight: "calc(100vh - 64px)" }}>
+      <UserComponent userData={userData} >
+        <UserPosts userId={userData.id}/>
+      </UserComponent>
+    </div>
   );
 };
 

@@ -3,6 +3,7 @@ import styles from "./feedStyles.module.css";
 import { useGetRandomUsers } from "../../lib/hooks/userHooks";
 import { Context } from "../../context/AuthContext";
 import { follow, unfollow } from "../../lib/api/user";
+import { Link } from "react-router-dom";
 
 const Followers = () => {
   const [followChange, setFollowChange] = useState(false);
@@ -37,7 +38,10 @@ const Followers = () => {
       {usersData.map((user) => (
         <div className={styles.follower}>
           <img src={user.profilePic} width={40} height={40} alt="" />
+          {/* <p>{user.name}</p> */}
+          <Link to={`/user/${user.id}`}>
           <p>{user.name}</p>
+        </Link>
           <button
             className={
               user.following ? styles.unfollowButton : styles.followButton

@@ -90,3 +90,22 @@
   font-weight: 500;
 }
 
+@media (max-width: 600px) {
+  .commentForm img {
+    border-radius: 100%;
+    min-width: 30px;
+  }
+
+  .commentForm input {
+    width: 100px;
+  }
+
+  .commentForm button {
+    padding: 0;
+  }
+
+  .commentForm {
+    gap: 10px;
+  }
+  
+}

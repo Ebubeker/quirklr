@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className={styles.navbar}>
         {/* <div> */}
         <p className={styles.logo}>
-          <Link to="/">Social Media</Link>
+          <Link to="/">Quirklr</Link>
         </p>
         <div className={styles.searchWrapper}>
           <SearchIcon width={20} height={20} color="#1b1b1b" />

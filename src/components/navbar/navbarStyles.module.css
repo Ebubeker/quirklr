@@ -49,3 +49,18 @@
   object-fit: cover;
   overflow-clip-margin: unset;
 }
+
+@media screen and (max-width: 673px) {
+  .searchWrapper input {
+    width: 150px;
+  }
+  .navbar {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 473px) {
+  .searchWrapper input {
+    width: 100px;
+  }
+}

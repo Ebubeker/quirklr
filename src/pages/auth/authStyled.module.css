@@ -121,13 +121,17 @@ span.forgotpsd a {
 
 
 @media screen and (max-width: 600px) {
-  form {
-    width: 25rem;
+  .form {
+    width: 20rem;
+  }
+  .register {
+  text-align: left;
+
   }
 }
 
 @media screen and (max-width: 400px) {
-  form {
+  /* form {
     width: 20rem;
-  }
+  } */
 }

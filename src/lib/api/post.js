@@ -23,6 +23,13 @@ export const getAllPostsQuery = (userId) => {
   return q;
 }
 
+export const getAllPostsByUserQuery = (userId) => {
+  //where("createdBy", "!=", userId)
+  const q = query(collection(db, "posts"), where("createdBy", "==", userId) ,orderBy("createdAt", "desc"));
+  return q;
+}
+
+
 export const updatePostData = (id, data) => {
   updateDoc(doc(db, 'posts', id), data)
 }

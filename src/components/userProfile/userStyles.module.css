@@ -1,0 +1,132 @@
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.gridCard{
+  background-color: #113a63;
+  padding: 35px;
+  border-radius: 20px;
+
+}
+
+.userContent {
+  background-color: #dfe4ec;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 750px) {
+  .container {
+    width: 90%;
+  }
+}
+
+.profilePic {
+  object-fit: cover;
+  overflow-clip-margin: unset;
+  border-radius: 100%;
+  border: 4px solid #113A63;
+}
+
+.cardTitle {
+  font-weight: 600;
+}
+
+.profileHeader {
+  display: flex;
+  gap: 50px;
+}
+
+.userData {
+  margin-top: 70px;
+}
+
+@media (max-width: 750px) {
+  .profileHeader {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .userData {
+    margin-top: 10px;
+  }
+}
+
+.username {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.bio {
+  font-size: 15px;
+  color: #000000cc;
+}
+
+.logout {
+  background-color: #F70000;
+  border: none;
+  color: black;
+  font-weight: bold;
+  transition: all .3s ease-in-out;
+  padding: 8px 20px;
+  border-radius: 5px;
+  margin: 7px 0;
+  /* width: 100%; */
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.followButton {
+  background-color: #5783db;
+  border: none;
+  color: white;
+  transition: all .3s ease-in-out;
+  padding: 8px 20px;
+  border-radius: 5px;
+  margin: 7px 0;
+  /* width: 100%; */
+  cursor: pointer;
+  font-size: 18px;
+  width: 120px;
+}
+
+.unfollowButton {
+  background-color: #ffffff;
+  border: none;
+  color: #000000;
+  transition: all .3s ease-in-out;
+  padding: 8px 20px;
+  border-radius: 5px;
+  margin: 7px 0;
+  width: 120px;
+  /* width: 100%; */
+  cursor: pointer;
+  font-size: 18px;
+  border: 2px solid #5783db90;
+}
+
+.followButton:hover {
+  background-color: #5783dbcb;
+}
+
+.noPosts {
+  color: white;
+  text-align: center;
+}

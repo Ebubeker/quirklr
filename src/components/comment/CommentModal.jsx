@@ -38,6 +38,7 @@ const CommentModal = ({ currentUser, post }) => {
               <img
                 src={comment.user.profilePic}
                 width={20}
+                height={20}
                 alt={comment.user.name}
               />
               <Link
