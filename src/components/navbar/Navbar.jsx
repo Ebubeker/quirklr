@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className={styles.navbar}>
         {/* <div> */}
         <p className={styles.logo}>
-          <Link to="/">Quirklr</Link>
+          <Link to="/"><span style={{color: "#FF0000"}}>Q</span>uirklr</Link>
         </p>
         <div className={styles.searchWrapper}>
           <SearchIcon width={20} height={20} color="#1b1b1b" />

@@ -25,6 +25,7 @@ export const useGetPostsByUserId = (userId) => {
   useEffect(() => {
     if(userId){
       onSnapshot(getAllPostsByUserQuery(userId), (snapshot) => {
+        console.log("posts refereshed")
         const fetchedPosts = snapshot.docs.map((doc) => ({...doc.data(), id: doc.id}));
         setPosts(fetchedPosts)
       })
