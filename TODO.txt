@@ -1,0 +1,15 @@
+TODO:
+- Find a different styling
+- Move post sharing to a different page
+- Make every post a single card
+- Show posts of people we do follow
+- Make search functional
+- Better profile page with like count, follows
+- Set account status private or public
+- Add DM
+- Profile Settings
+- Add notifications
+- Add Stories and a page where we create a story
+- Share functionality
+- Add algorithm to also show people we do not follow
+- Add an Explore Feed

@@ -1,5 +1,6 @@
 .navbarWrapper{
-  background-color: #113a63;
+  background-color: var(--bg);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1.3px;
 }
 
 .navbar {
@@ -17,7 +18,7 @@
 
 .logo a {
   font-size: 25px;
-  color: white;
+  color: var(--primary);
   text-decoration: none;
   font-weight: 600;
 }
@@ -26,14 +27,16 @@
   display: flex;
   gap: 8px;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #f6f6f6;
   padding: 10px;
-  border-radius: 16px;
+  border-radius: 50px;
+  border: 1px solid #c7c7c7c4;
 }
 
 .searchWrapper input {
   border: none;
   outline: none;
+  background-color: #f6f6f6;
   width: 300px;
 }
 
@@ -48,6 +51,7 @@
   border-radius: 50%;
   object-fit: cover;
   overflow-clip-margin: unset;
+  border: 2px var(--primary) solid;
 }
 
 @media screen and (max-width: 673px) {

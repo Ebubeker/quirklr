@@ -1,0 +1,303 @@
+.container{
+  width: 80%;
+  margin: 120px auto;
+  /* height: calc(100vh - 304px); */
+  min-height: calc(100vh - 304px);
+  border-radius: 15px;
+  /* background-color: var(--secondary); */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.imageInputWrapper {
+  max-height: 365px;
+  height: 365px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textAndAction {
+  height: fit-content;
+}
+
+.button {
+  background-color: #5783db;
+  border: none;
+  color: white;
+  transition: all .3s ease-in-out;
+  padding: 14px 20px;
+  border-radius: 5px;
+  margin: 20px 0;
+  margin-bottom: 0;
+  width: 100%;
+  font-size: 18px;
+}
+
+.button:hover {
+  background-color: #5783dbcb;
+  cursor: pointer;
+}
+
+.postTextArea {
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  resize: none;
+  outline: none;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  width: calc(100% - 40px);
+}
+
+.images {
+  max-height: 100%;
+  height: 100%;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 50%);
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+}
+
+.oneImage {
+  width: 100%;
+  height: 100%;
+  grid-column: span 4 / span 4;
+  grid-row: span 2 / span 2;
+  background-position: center;
+  background-size: cover;
+  image-rendering: crisp-edges;
+  border-radius: 15px;
+  position: relative;
+}
+
+.twoImages {
+  width: 100%;
+  height: 100%;
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+  background-position: center;
+  background-size: cover;
+  image-rendering: crisp-edges;
+}
+
+.threeImages {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  image-rendering: crisp-edges;
+  position: relative;
+}
+
+.morethreeImages {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+  image-rendering: crisp-edges;
+  position: relative;
+  /* filter: blur(2px); */
+}
+
+.morethreeImages .blurredImage {
+  filter: blur(2px);
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+  image-rendering: crisp-edges;
+}
+
+.morethreeImages video {
+  filter: blur(2px);
+}
+
+.addPost {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.absoluteAddition {
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  width: 300px;
+  height: 150px;
+  border-top-left-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.moreText {
+  background-color: #ffffff80;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  cursor: pointer;
+}
+
+.imagesGrid {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.imageRow {
+  height: 50%;
+  display: flex;
+}
+
+/* -----------Modal------------ */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.header p {
+  font-weight: 600;
+  font-size: 21px;
+  margin: 0;
+}
+
+.header div {
+  cursor: pointer;
+}
+
+.imagesModalGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 300px;
+  gap: 16px;
+  /* height: calc(100% - 70px); */
+  height: calc(100% - 44px);;
+  overflow-y: scroll;
+}
+
+.imagesModalGrid label,
+.imagesModalGrid div {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  image-rendering: crisp-edges;
+}
+
+.imagesModalGrid label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border);
+}
+
+.uploadedContentGridElement {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.editingBar {
+  background-color: #00000090;
+  height: fit-content !important;
+  padding: 10px;
+  width: calc(100% - 20px) !important;
+  display: none;
+  transition: all .3s ease;
+  justify-content: end;
+}
+
+.editingBarVideo {
+  background-color: #00000090;
+  /* height: 50px; */
+  width: calc(100% - 20px) !important;
+  position: absolute;
+  padding: 10px;
+  display: none;
+  transition: all .3s ease;
+  justify-content: end;
+  top: 0;
+  left: 0;
+}
+
+.editingBarVideo span,
+.editingBar span {
+  cursor: pointer;
+}
+
+.oneImage:hover .editingBar,
+.oneImage:hover .editingBarVideo,
+.twoImages:hover .editingBar,
+.twoImages:hover .editingBarVideo,
+.threeImages:hover .editingBar,
+.threeImages:hover .editingBarVideo,
+.imagesModalGrid div:hover .editingBar,
+.imagesModalGrid div:hover .editingBarVideo{
+  display: flex;
+}
+
+/* -----------Image Modal------------ */
+
+.imageModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100vw - 5px);
+  height: 100vh;
+  z-index: 1;
+}
+
+.imageModal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  padding: 6px;
+  padding-bottom: 2px;
+  background-color: #ffffff77;
+  border-radius: 50%;
+  transition: all .1s;
+}
+
+.closeIcon:hover {
+  background-color: #ffffffaa;
+}
+
+.videoPreview {
+  width: 100%;
+  height: 100%;
+}

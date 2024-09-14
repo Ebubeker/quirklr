@@ -11,12 +11,7 @@ export const useGetComments = (postId) => {
       onSnapshot(getCommentsBasedOnPost(postId), async (snapshot) => {
         setComments([])
         const fetchedComments = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-        // fetchedComments.map((comment) => {
-        //   getUserById(comment.createdBy).then((data) => {
-        //     // console.log([...comments, {user: data.data(), ...comment}])
-        //     setComments([...comments, {user: data.data(), ...comment}])
-        //   })
-        // })
+        
         const commentsWithUserData = await Promise.all(fetchedComments.map(async (comment) => {
           const userData = await getUserById(comment.createdBy);
           return { user: {...userData.data(), id: userData.id}, ...comment };

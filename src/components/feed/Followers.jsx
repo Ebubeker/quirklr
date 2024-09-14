@@ -14,7 +14,6 @@ const Followers = () => {
 
   const handleFollow = (e, userId) => {
     e.preventDefault();
-    console.log();
     follow(currentUser.id, userId);
     
     setFollowChange(!followChange);

@@ -39,7 +39,6 @@ export const useGetRandomUsers = (currentUser, followChange) => {
             following: userData.docs.length ? true : false
           }
         }));
-        console.log(fetchedUsersWithCheckIfIFollow)
         setUsers(fetchedUsersWithCheckIfIFollow)
       })
     }else {

@@ -14,7 +14,7 @@ export const createPost = (img, content, userId) => {
     createdAt: new Date(),
   }
 
-  addDoc(collection(db, "posts"), post)
+  return addDoc(collection(db, "posts"), post)
 }
 
 export const getAllPostsQuery = (userId) => {

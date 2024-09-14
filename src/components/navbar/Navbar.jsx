@@ -10,16 +10,13 @@ const Navbar = () => {
   return (
     <div className={styles.navbarWrapper}>
       <div className={styles.navbar}>
-        {/* <div> */}
         <p className={styles.logo}>
           <Link to="/"><span style={{color: "#FF0000"}}>Q</span>uirklr</Link>
         </p>
         <div className={styles.searchWrapper}>
-          <SearchIcon width={20} height={20} color="#1b1b1b" />
-          <input type="text" placeholder="search" />
+          <SearchIcon width={20} height={20} color="#8e8e8ec4" />
+          <input type="text" placeholder="Search..." />
         </div>
-        {/* </div> */}
-        {/* <div> */}
         {userData ? (
           <div className={styles.profile}>
             <Link to="/profile" >
@@ -32,7 +29,6 @@ const Navbar = () => {
             </Link>
           </div>
         ) : null}
-        {/* </div> */}
       </div>
     </div>
   );

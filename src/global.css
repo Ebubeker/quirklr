@@ -1,10 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
+/* css varibales */
+:root {
+  --bg: #f7fafd;
+  --primary: #113A63;
+  --secondary: #cdd8f7;
+  --border: #c7c7c7c4;
+}
+
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Plus Jakarta Sans", sans-serif ;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: black;
+}
+
+input {
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -13,7 +26,7 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #144F8A;
+  background: #fff;
 }
 
 /* Handle */
@@ -25,4 +38,20 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #979797;
-} 
+}
+
+/* Add Post Button */
+
+.addPostFeed {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: var(--primary);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
