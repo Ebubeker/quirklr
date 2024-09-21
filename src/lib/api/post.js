@@ -1,5 +1,5 @@
 import { db } from "../../firebase";
-import { addDoc, collection, doc, orderBy, query, where } from "firebase/firestore";
+import { addDoc, collection, doc, limit, orderBy, query, where } from "firebase/firestore";
 import { v4 } from "uuid";
 // import { onSnapshot } from "firebase/firestore";
 import { updateDoc } from "firebase/firestore";
@@ -17,9 +17,9 @@ export const createPost = (img, content, userId) => {
   return addDoc(collection(db, "posts"), post)
 }
 
-export const getAllPostsQuery = (userId) => {
+export const getAllPostsQuery = (userId, limitNr=10) => {
   //where("createdBy", "!=", userId)
-  const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
+  const q = query(collection(db, "posts"), orderBy("createdAt", "desc"), limit(limitNr));
   return q;
 }
 
@@ -39,10 +39,15 @@ export const createComment = (userId, comment, postId, comments) => {
     createdBy: userId,
     content: comment,
     createdAt: new Date(),
-    postId: postId
+    postId: postId,
+    likes: []
   }).then((commentId) => {
     updatePostData(postId, { comments: [...comments, commentId] })
   })
+}
+
+export const updateCommentData = (id, data) => {
+  updateDoc(doc(db, 'comments', id), data)
 }
 
 export const getCommentsBasedOnPost = (postId) => {

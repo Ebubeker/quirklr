@@ -1,11 +1,11 @@
 import React from "react";
 
-const FilledHeart = ({ onClick }) => {
+const FilledHeart = ({ width, height, onClick }) => {
   return (
     <svg
       onClick={onClick}
-      width="30px"
-      height="30px"
+      width={width ? width : "30px"}
+      height={height ? height : "30px"}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

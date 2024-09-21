@@ -31,7 +31,13 @@ const SharePostContainer = () => {
     e.preventDefault();
 
     if (imageShow && content.length) {
-      createPost(imageShow, content, userData.id)
+
+      const media = imageShow.map((img, indx)=>({
+        img: img,
+        type: contentType[indx] === 'mp4' ? 'video' : 'image'
+      }))
+
+      createPost(media, content, userData.id)
         .then(() => {
           setImageShow([]);
           setContentType([]);

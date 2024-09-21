@@ -1,6 +1,9 @@
 .navbarWrapper{
   background-color: var(--bg);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1.3px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 }
 
 .navbar {

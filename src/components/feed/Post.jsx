@@ -7,6 +7,7 @@ import { updatePostData } from "../../lib/api/post";
 import CommentModal from "../comment/CommentModal";
 import { Link } from "react-router-dom";
 import styles from "./feedStyles.module.css";
+import MediaContent from "./MediaContent";
 
 const createPostWithAnchors = (postContent) => {
   const contentWithSpaces = postContent.replace(/\n/g, " ");
@@ -65,27 +66,30 @@ const Post = ({ postData, currentUser }) => {
 
   return (
     <div className={styles.postContainer}>
-      <div className={styles.postHeader}>
-        <img src={userData.profilePic} width={40} height={40} alt="icon" />
-        <Link to={`/user/${userData.id}`}>
-          <p>{userData.name}</p>
-        </Link>
+      <div>
+        <div className={styles.postHeader}>
+          <img src={userData.profilePic} width={40} height={40} alt="icon" />
+          <Link to={`/user/${userData.id}`}>
+            <p>{userData.name}</p>
+          </Link>
+        </div>
       </div>
-      {/* <p>{postData.createdAt}</p> */}
-      <img src={postData.img} alt="image" className={styles.postMedia} />
+      <MediaContent media={postData.img} />
+      {/* <img src={postData.img} alt="image" className={styles.postMedia} /> */}
       <div className={styles.content}>
         {createPostWithAnchors(postData.content)}
       </div>
       <div className={styles.postInteraction}>
-        <div>
+        <div style={{ minWidth: "60px" }}>
           {liked ? (
             <FilledHeart onClick={() => handleLikeToggle(false)} />
           ) : (
             <Heart onClick={() => handleLikeToggle(true)} />
           )}
-          <span className={liked ? styles.likesCount : styles.likesCountUnselected}>
-          {postData.likes.length}
-
+          <span
+            className={liked ? styles.likesCount : styles.likesCountUnselected}
+          >
+            {postData.likes.length}
           </span>
         </div>
         <div>
@@ -95,9 +99,14 @@ const Post = ({ postData, currentUser }) => {
           </span>
         </div>
       </div>
-          {openComments ? (
-            <CommentModal currentUser={currentUser} post={postData} />
-          ) : null}
+      {/* {openComments ? ( */}
+      <CommentModal
+        currentUser={currentUser}
+        post={postData}
+        modalIsOpen={openComments}
+        setIsOpen={setOpenComments}
+      />
+      {/* ) : null} */}
     </div>
   );
 };
