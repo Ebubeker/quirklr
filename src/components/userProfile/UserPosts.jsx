@@ -11,7 +11,7 @@ const UserPosts = ({userId}) => {
       {posts.length ? posts.map((post) => (
         <Post postData={post} currentUser={userId}/>
       )) : (
-        <p className={styles.noPosts}>No posts yet</p>
+        <p className={styles.noPosts}>No posts yet...</p>
       )}
     </div>
   );

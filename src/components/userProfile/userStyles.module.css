@@ -8,8 +8,6 @@
 }
 
 .gridCard{
-  background-color: #113a63;
-  padding: 35px;
   border-radius: 20px;
 
 }
@@ -18,6 +16,8 @@
   background-color: #dfe4ec;
   border-radius: 16px;
   padding: 20px;
+  position: relative;
+  margin-top: 90px;
 }
 
 @media (max-width: 600px) {
@@ -37,6 +37,8 @@
   overflow-clip-margin: unset;
   border-radius: 100%;
   border: 4px solid #113A63;
+  position: absolute;
+  top: -80px;
 }
 
 .cardTitle {
@@ -127,6 +129,36 @@
 }
 
 .noPosts {
-  color: white;
+  color: var(--primary);
   text-align: center;
+}
+
+/* User analytics */
+
+.contentInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.accountAnalytics {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+  margin-right: 20px;
+}
+
+.statistic {
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 10px; */
+}
+
+.statistic .number {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
 }

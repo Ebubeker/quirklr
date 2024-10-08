@@ -44,7 +44,7 @@ const SingleComment = ({ currentUser, comment }) => {
               alt={comment.user.name}
             />
             <Link
-              to={`user/${comment.user.id}`}
+              to={`/user/${comment.user.id}`}
               style={{ textDecoration: "none", color: "#000000" }}
             >
               <p>{comment.user.name}</p>

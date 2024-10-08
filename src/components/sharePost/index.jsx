@@ -31,11 +31,10 @@ const SharePostContainer = () => {
     e.preventDefault();
 
     if (imageShow && content.length) {
-
-      const media = imageShow.map((img, indx)=>({
+      const media = imageShow.map((img, indx) => ({
         img: img,
-        type: contentType[indx] === 'mp4' ? 'video' : 'image'
-      }))
+        type: contentType[indx] === "mp4" ? "video" : "image",
+      }));
 
       createPost(media, content, userData.id)
         .then(() => {
@@ -43,7 +42,7 @@ const SharePostContainer = () => {
           setContentType([]);
           setContent("");
           setError(undefined);
-          navigate('/')
+          navigate("/");
         })
         .catch((error) => {
           setError(error);

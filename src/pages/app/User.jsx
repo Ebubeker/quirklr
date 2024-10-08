@@ -1,23 +1,14 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { useGetUserById, useCheckIfIFollow } from "../../lib/hooks/userHooks";
 import { Context } from "../../context/AuthContext";
-import { follow, unfollow } from "../../lib/api/user";
+import { useGetUserById } from "../../lib/hooks/userHooks";
 
-import {User as UserComponent} from "../../components/userProfile/User";
+import { User as UserComponent } from "../../components/userProfile/User";
 import UserPosts from "../../components/userProfile/UserPosts";
 
 const User = () => {
   const { userId } = useParams();
-  const { userData: currentUser } = useContext(Context);
-
   const { userData } = useGetUserById(userId);
-  const { aFollower } = useCheckIfIFollow(
-    currentUser ? currentUser.id : "",
-    userId
-  );
-
-  
 
   if (!userData) return "loading...";
 

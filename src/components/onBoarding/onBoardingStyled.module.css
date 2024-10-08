@@ -1,7 +1,8 @@
 .onBoardingWrapper {
-  width: 80%;
-  margin: auto;
-  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
   min-height: calc(100vh - 60px);
 }
 
@@ -26,7 +27,9 @@ h1 {
 }
 
 .box {
-  padding:40px;
+  height: 60vh;
+  width: 80%;
+  padding: 40px;
   border: 1px solid #FAF2F2;
   border-radius: 5px;
   background-color: #ffffff;
@@ -38,9 +41,10 @@ h1 {
 
 .rowInput {
   display: flex;
-  gap: 20px;
-  width: 60%;
-  margin-bottom: 10px;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-bottom:40px;
 }
 
 label {
@@ -48,14 +52,16 @@ label {
   margin-bottom: 5px;
 }
 
-textarea.small-input{
+textarea.small-input {
   resize: none;
   outline: none;
-  font-family: "Plus Jakarta Sans", sans-serif ;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  border-color: #00000030;
+  height: 300px;
 }
 
 .small-input {
-  width: 30%;
+  width: 100%;
   padding: 10px;
   /* width: 500px; */
   flex-grow: 1;
@@ -89,8 +95,7 @@ input[type="file"] {
 
 button {
   padding: 10px 15px;
-  color: #007BFF
-  background-color #f5f5f5;
+  color: #007BFF background-color #f5f5f5;
   border: none;
   cursor: pointer;
 }
@@ -142,7 +147,54 @@ button:hover {
   .onBoardingWrapper {
     width: 90%
   }
+
   .box {
     padding: 20px;
   }
+}
+
+/* New styles */
+
+.stepWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  height: calc(100% - 80px);
+}
+
+.stepContent {
+  flex-grow: 1;
+}
+
+.profileImage {
+  width: 280px;
+  height: 280px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 100%;
+  border: 2px solid var(--primary);
+  cursor: pointer;
+}
+
+.stepWrapper .button {
+  background-color: #5783db;
+  border: none;
+  color: white;
+  transition: all .3s ease-in-out;
+  padding: 14px 20px;
+  border-radius: 5px;
+  width: fit-content;
+  font-size: 18px;
+}
+
+.stepWrapper .button:hover {
+  background-color: #5783dbcb;
+  cursor: pointer;
+}
+
+.actionsButtons {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: 12px;
 }

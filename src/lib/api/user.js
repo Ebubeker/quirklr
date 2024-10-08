@@ -26,10 +26,18 @@ export const getUserById = async (id) => {
   return await getDoc(doc(db, "users", id))
 }
 
-export const getUsers = () => {
-  const q = query(collection(db, "users"))
-  return q
-}
+export const getUsers = (searchQuery) => {
+  // Start with the base query
+  let q = query(collection(db, "users"));
+
+  // If searchQuery is provided, add a 'where' clause to filter by the query
+  if (searchQuery) {
+    q = query(collection(db, "users"), where("username", ">=", searchQuery), where("username", "<=", searchQuery + "\uf8ff"));
+  }
+
+  return q;
+};
+
 
 
 export const getUserDataQuery = (email) => {
@@ -38,14 +46,7 @@ export const getUserDataQuery = (email) => {
 }
 
 export const updateUserData = (id, data) => {
-  updateDoc(doc(db, 'users', id), {
-    bio: data.bio,
-    birthday: data.birthday,
-    username: data.username,
-    name: data.name,
-    profilePic: data.profilePic,
-    onBoarding: data.onBoarding
-  })
+  updateDoc(doc(db, 'users', id), data)
 }
 
 export const follow = (userId, targetId) => {

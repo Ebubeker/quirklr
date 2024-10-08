@@ -9,13 +9,14 @@ const Followers = () => {
   const [followChange, setFollowChange] = useState(false);
   const { userData: currentUser } = useContext(Context);
   const { usersData } = useGetRandomUsers(
-    currentUser ? currentUser.id : undefined, followChange
+    currentUser ? currentUser.id : undefined,
+    followChange
   );
 
   const handleFollow = (e, userId) => {
     e.preventDefault();
     follow(currentUser.id, userId);
-    
+
     setFollowChange(!followChange);
   };
 
@@ -32,15 +33,15 @@ const Followers = () => {
   }, [followChange]);
 
   return (
-    <div className={styles.gridCard}>
+    <div className={styles.userSuggestionList}>
       <p className={styles.cardTitle}>Suggested People</p>
       {usersData.map((user) => (
         <div className={styles.follower}>
           <img src={user.profilePic} width={40} height={40} alt="" />
           {/* <p>{user.name}</p> */}
           <Link to={`/user/${user.id}`}>
-          <p>{user.name}</p>
-        </Link>
+            <p>{user.name}</p>
+          </Link>
           <button
             className={
               user.following ? styles.unfollowButton : styles.followButton

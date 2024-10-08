@@ -29,6 +29,10 @@ export const getAllPostsByUserQuery = (userId) => {
   return q;
 }
 
+export const getFollowingUserPosts = (userIds, limitNr=10) => {
+  const q = query(collection(db, "posts"), where("createdBy", "in", userIds) ,orderBy("createdAt", "desc"), limit(limitNr));
+  return q;
+}
 
 export const updatePostData = (id, data) => {
   updateDoc(doc(db, 'posts', id), data)

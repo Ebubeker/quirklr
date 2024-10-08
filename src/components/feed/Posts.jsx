@@ -3,10 +3,11 @@ import { useGetPosts } from "../../lib/hooks/postHooks";
 import { Context } from "../../context/AuthContext";
 import Post from "./Post";
 import styles from "./feedStyles.module.css";
+import { useGetPostsByFollowingList } from "../../lib/hooks/postHooks";
 
 const Posts = () => {
   const { userData } = useContext(Context);
-  const { posts, loading, refetch } = useGetPosts(userData ? userData.id : undefined);
+  const { posts, loading, refetch } = useGetPostsByFollowingList(userData ? userData.id : undefined);
 
   useEffect(() => {
     window.addEventListener('scroll', () => {

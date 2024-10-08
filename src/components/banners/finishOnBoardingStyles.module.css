@@ -1,0 +1,61 @@
+.banner {
+  border: 1px solid #00000010;
+  padding: 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banner p {
+  margin: 0;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.subtitle {
+  font-size: 14px;
+  padding-top: 6px;
+}
+
+.banner img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.icon {
+  position: relative;
+  height: fit-content;
+}
+
+.icon svg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: rotate(270deg);
+}
+
+.button {
+  background-color: #5783db;
+  border: none;
+  color: white;
+  transition: all .3s ease-in-out;
+  padding: 6px 12px;
+  padding-bottom: 8px;
+  border-radius: 5px;
+  margin: 7px 0;
+  width: fit-content;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+}
+
+.button:hover {
+  background-color: #5783dbcb;
+  cursor: pointer;
+}

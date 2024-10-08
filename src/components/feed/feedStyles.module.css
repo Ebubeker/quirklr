@@ -48,6 +48,12 @@
   }
 }
 
+.userSuggestionList {
+  position: sticky;
+  border-radius: 15px;
+  top: 120px;
+}
+
 .gridCard {
   /* background-color: #cdd8f7; */
   /* padding: 35px; */
@@ -224,7 +230,7 @@
   padding: 8px 20px;
   border-radius: 5px;
   margin: 7px 0;
-  /* width: 100%; */
+  min-width: 110px;
   cursor: pointer;
   font-size: 18px;
 }
@@ -237,7 +243,7 @@
   padding: 8px 20px;
   border-radius: 5px;
   margin: 7px 0;
-  /* width: 100%; */
+  min-width: 110px;
   cursor: pointer;
   font-size: 18px;
 }
