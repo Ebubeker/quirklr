@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ChevronRight from "../../lib/assets/icons/ChevronRight";
 import ChevronLeft from "../../lib/assets/icons/ChevronLeft";
+import FilledHeart from "../../lib/assets/icons/FilledHeart";
 import styles from "./feedStyles.module.css";
 
 const ImageMedia = ({ src, currCarouselPosition, indx }) => {
   return (
     <img
       src={src}
-      alt="image"
+      alt="post"
       className={styles.postMedia}
       style={{ display: indx !== currCarouselPosition ? "none" : undefined }}
     />
@@ -20,6 +21,7 @@ const VideoMedia = ({ src, currCarouselPosition, indx }) => {
       controls={false}
       autoPlay
       muted
+      playsInline
       className={styles.postMedia}
       style={{ display: indx !== currCarouselPosition ? "none" : undefined }}
       loop
@@ -30,11 +32,27 @@ const VideoMedia = ({ src, currCarouselPosition, indx }) => {
   );
 };
 
-const MediaContent = ({ media }) => {
+const MediaContent = ({ media, likehandle }) => {
   const [currCarouselPosition, setCurrCarouselPosition] = useState(0);
+  const [likeEffect, setLikeEffect] = useState(false);
+
+  useEffect(() => {
+    if (likeEffect) {
+      setTimeout(() => {
+        setLikeEffect(false);
+      }, 500);
+    }
+  }, [likeEffect]);
 
   return (
-    <>
+    <div
+      onDoubleClick={() => {
+        likehandle();
+        setLikeEffect(true);
+      }}
+      onDouble
+      className={styles.media}
+    >
       {media.length > 1 ? (
         <div className={styles.carousel}>
           {currCarouselPosition !== 0 ? (
@@ -88,7 +106,14 @@ const MediaContent = ({ media }) => {
           )}
         </>
       )}
-    </>
+      {likeEffect ? (
+        <>
+          <div className={styles.afterDoubleClick}>
+            <FilledHeart width={"100px"} height={"100px"} />
+          </div>
+        </>
+      ) : null}
+    </div>
   );
 };
 

@@ -54,17 +54,6 @@
   margin-top: 70px;
 }
 
-@media (max-width: 750px) {
-  .profileHeader {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .userData {
-    margin-top: 10px;
-  }
-}
-
 .username {
   font-size: 14px;
   font-weight: 600;
@@ -161,4 +150,38 @@
   font-size: 20px;
   font-weight: 700;
   margin: 0;
+}
+
+@media (max-width: 750px) {
+  .profileHeader {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .userData p {
+    margin: 6px 0;
+  }
+
+  .username {
+    font-size: 12px;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+  
+  .bio {
+    font-size: 13px;
+  }
+
+  .accountAnalytics {
+    gap: 10px;
+  }
+
+  .accountAnalytics .statistic .number {
+    font-size: 18px;
+  }
+
+  .accountAnalytics .statistic p {
+    margin-top: 6px;
+  }
 }

@@ -51,6 +51,11 @@
   align-items: center;
 }
 
+.profile a {
+  width: 44px;
+  height: 44px;
+}
+
 .profile img{
   border-radius: 50%;
   object-fit: cover;
@@ -118,10 +123,6 @@
 .userInfo p {
   margin: 0;
   font-size: 15px;
-}
-
-.userInfo {
-
 }
 
 .userInfo .name {

@@ -131,28 +131,6 @@ button:hover {
   background-color: #5783dbcb;
 }
 
-@media (max-width: 1000px) {
-  .rowInput {
-    width: 90%
-  }
-}
-
-@media (max-width: 750px) {
-  .rowInput {
-    width: 100%
-  }
-}
-
-@media (max-width: 600px) {
-  .onBoardingWrapper {
-    width: 90%
-  }
-
-  .box {
-    padding: 20px;
-  }
-}
-
 /* New styles */
 
 .stepWrapper {
@@ -197,4 +175,30 @@ button:hover {
   display: flex;
   justify-content: end;
   gap: 12px;
+}
+
+@media (max-width: 1000px) {
+  .rowInput {
+    width: 90%
+  }
+}
+
+@media (max-width: 750px) {
+  .rowInput {
+    width: 100%
+  }
+  .profileImage {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* .onBoardingWrapper {
+    width: 90%
+  } */
+
+  .box {
+    padding: 20px;
+  }
 }

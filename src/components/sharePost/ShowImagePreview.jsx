@@ -7,6 +7,7 @@ import { storage } from "../../firebase";
 import { deleteObject } from "firebase/storage";
 import { ref } from "firebase/storage";
 import MediaIcon from "../../lib/assets/images/media.png";
+import { useDeviceType } from "../../lib/hooks/device-type";
 
 const MediaContent = ({
   type,
@@ -73,7 +74,7 @@ const MediaContent = ({
           return;
         }
         const divChildren = e.currentTarget.querySelectorAll("div");
-        if (divChildren.length && e.target.tagName !== 'DIV') {
+        if (divChildren.length && e.target.tagName !== "DIV") {
           setSelectedImage(src);
         }
       }}
@@ -103,8 +104,12 @@ const ShowImagePreview = ({
   handleImageChange,
   contentType,
   setContentType,
+  modalIsOpen,
+  setIsOpen,
 }) => {
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const isMobile = useDeviceType();
+
+  // const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(undefined);
 
   const deleteImageFromSelection = (imageToDelete) => {
@@ -202,15 +207,17 @@ const ShowImagePreview = ({
                     setSelectedImage={setSelectedImage}
                   />
                 ) : images.length > 5 ? (
-                  <MediaContent
-                    onClick={() => setIsOpen(true)}
-                    type={contentType[4]}
-                    src={images[4]}
-                    length={images.length}
-                    className={styles.morethreeImages}
-                    deleteImageFromSelection={deleteImageFromSelection}
-                  />
-                ) : (
+                  !isMobile ? (
+                    <MediaContent
+                      onClick={() => setIsOpen(true)}
+                      type={contentType[4]}
+                      src={images[4]}
+                      length={images.length}
+                      className={styles.morethreeImages}
+                      deleteImageFromSelection={deleteImageFromSelection}
+                    />
+                  ) : null
+                ) : !isMobile ? (
                   <label
                     className={styles.addPost}
                     htmlFor="add-file"
@@ -232,7 +239,7 @@ const ShowImagePreview = ({
                       <img src={MediaIcon} alt="Media Post" width={150} />
                     </span>
                   </label>
-                )}
+                ) : null}
               </>
             </>
           </>
@@ -279,7 +286,11 @@ const ShowImagePreview = ({
       <OpenImageFullScreenView
         open={selectedImage}
         closeModal={() => setSelectedImage(undefined)}
-        mediaType={selectedImage ? contentType[images.findIndex((img) => img === selectedImage)] : undefined}
+        mediaType={
+          selectedImage
+            ? contentType[images.findIndex((img) => img === selectedImage)]
+            : undefined
+        }
       />
     </div>
   );

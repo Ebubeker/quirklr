@@ -148,6 +148,21 @@
   background-color: #ffffff;
 }
 
+.absoluteAdditionMobile {
+  position: absolute;
+  display: none;
+  bottom: -10px;
+  right: 0;
+  width: 200px;
+  height: 100px;
+  border-top-left-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+
 .moreText {
   background-color: #ffffff80;
   width: 50px;
@@ -273,7 +288,7 @@
   left: 0;
   width: calc(100vw - 5px);
   height: 100vh;
-  z-index: 1;
+  z-index: 1000;
 }
 
 .imageModal img {
@@ -301,4 +316,39 @@
 .videoPreview {
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 750px) {
+  .imageInputWrapper img {
+    width: 200px;
+  }
+
+  .images {
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 50%);
+  }
+
+  .twoImages {
+    grid-column: span 1 / span 1;
+    grid-row: span 2 / span 2;
+  }
+
+  .absoluteAdditionMobile {
+    display: flex;
+  }
+
+  .imagesModalGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .imageModal img{
+    width: 100vw;
+  }
 }

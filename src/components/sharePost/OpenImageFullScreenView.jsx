@@ -4,8 +4,6 @@ import CloseIcon from "../../lib/assets/icons/CloseIcon";
 
 const OpenImageFullScreenView = ({ open, closeModal, mediaType }) => {
 
-  console.log(mediaType)
-
   if (!open) return null;
 
   return mediaType === 'mp4' ? (

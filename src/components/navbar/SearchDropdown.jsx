@@ -4,7 +4,6 @@ import { useSearchUsers } from "../../lib/hooks/userHooks";
 import { Link } from "react-router-dom";
 
 const SearchDropdown = ({ searchText, setSearchText }) => {
-  console.log("refetch");
 
   const { users, loading, refetch } = useSearchUsers(searchText);
 

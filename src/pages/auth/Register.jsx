@@ -8,16 +8,21 @@ import styles from "./authStyled.module.css";
 
 const Register = () => {
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(undefined);
   const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState(undefined);
   const navigate = useNavigate();
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (!email) setEmailError("Email field is required!");
+    if (!password) setPasswordError("Password field is required!");
+
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         // const user = userCredential.user;
-        registerUserInDatabase(email)
+        registerUserInDatabase(email);
         navigate("/onBoarding");
         // ...
       })
@@ -45,6 +50,7 @@ const Register = () => {
             onChange={(e) => setEmail(e.target.value)}
             className={styles.input}
           />
+          {emailError ? <p className={styles.fieldErr}>{emailError}</p> : null}
           <br />
           <br />
 
@@ -55,8 +61,14 @@ const Register = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-
-          <button type="submit" className={styles.button}>Register</button>
+          {passwordError ? (
+            <p className={styles.fieldErr}>{passwordError}</p>
+          ) : null}
+          <br />
+          <br />
+          <button type="submit" className={styles.button}>
+            Register
+          </button>
 
           <p className={styles.register}>
             You already have an account? <Link to="/login">Login here!</Link>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 
 body {
   padding: 0;
@@ -6,31 +6,30 @@ body {
 
 .background {
   font-family: sans-serif;
-  background: -webkit-linear-gradient(to right, #155799, #159957);
-  background: linear-gradient(to right, #155799, #159957);
+  /* background: -webkit-linear-gradient(to right, #155799, #159957);
+  background: linear-gradient(to right, #155799, #159957); */
+  background-color: #113a63aa;
   color: whitesmoke;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Plus Jakarta Sans", sans-serif ;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
-
 
 .header {
   text-align: center;
 }
 
-
 .form {
   width: 35rem;
   /* margin: auto; */
   color: whitesmoke;
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(11, 15, 13, 0.582);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  /* backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%); */
+  /* background-color: #113A63aa; */
+  /* border-radius: 12px; */
+  /* border: 1px solid rgba(255, 255, 255, 0.125); */
   padding: 20px 25px;
 }
 
@@ -45,10 +44,10 @@ body {
 }
 
 .button {
-  background-color: #030804;
+  background-color: var(--primary);
   border: none;
   color: white;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   padding: 14px 20px;
   border-radius: 5px;
   margin: 7px 0;
@@ -57,7 +56,7 @@ body {
 }
 
 .button:hover {
-  background-color: #272927;
+  background-color: var(--primary);
   cursor: pointer;
 }
 
@@ -72,13 +71,12 @@ body {
 }
 
 .headingsContainer p {
-  color: gray;
+  color: #e3e3e3;
 }
 
 .mainContainer {
   padding: 16px;
 }
-
 
 .subcontainer {
   display: flex;
@@ -99,7 +97,12 @@ span.forgotpsd a {
 }
 
 .forgotpsd a {
-  color: rgb(74, 146, 235);
+  color: var(--primary);
+}
+
+.forgotpsd:hover {
+  text-decoration: underline;
+  color: var(--primary);
 }
 
 .forgotpsd a:link {
@@ -112,21 +115,31 @@ span.forgotpsd a {
 }
 
 .register a {
-  color: rgb(74, 146, 235);
+  color: var(--primary);
 }
 
 .register a:link {
   text-decoration: none;
 }
 
+.register:hover a {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+.fieldErr {
+  font-size: 11px;
+  color: #af1c1c;
+  font-weight: 600;
+  margin: 0;
+}
 
 @media screen and (max-width: 600px) {
   .form {
     width: 20rem;
   }
   .register {
-  text-align: left;
-
+    text-align: left;
   }
 }
 

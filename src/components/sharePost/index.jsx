@@ -9,6 +9,8 @@ import { createPost } from "../../lib/api/post";
 import MediaIcon from "../../lib/assets/images/media.png";
 import ShowImagePreview from "./ShowImagePreview";
 import styled from "./styles.module.css";
+import { useDeviceType } from "../../lib/hooks/device-type";
+import toast from "react-hot-toast";
 
 const options = {
   maxSizeMB: 1,
@@ -17,8 +19,11 @@ const options = {
 };
 
 const SharePostContainer = () => {
+  const isMobile = useDeviceType();
+
   const [imageShow, setImageShow] = useState([]);
   const [contentType, setContentType] = useState([]);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const [content, setContent] = useState("");
   const [error, setError] = useState(undefined);
@@ -38,11 +43,12 @@ const SharePostContainer = () => {
 
       createPost(media, content, userData.id)
         .then(() => {
+          toast.success('Post was created successfully')
           setImageShow([]);
           setContentType([]);
           setContent("");
           setError(undefined);
-          navigate("/");
+          navigate("/profile");
         })
         .catch((error) => {
           setError(error);
@@ -169,6 +175,8 @@ const SharePostContainer = () => {
         />
         {imageShow && imageShow.length ? (
           <ShowImagePreview
+            modalIsOpen={modalIsOpen}
+            setIsOpen={setIsOpen}
             images={imageShow}
             setImages={setImageShow}
             handleImageDrop={handleImageDropAddition}
@@ -180,6 +188,9 @@ const SharePostContainer = () => {
           <img src={MediaIcon} alt="Media Post" />
         )}
       </label>
+      {isMobile && imageShow.length >= 3 ? (
+        <p onClick={()=>setIsOpen(true)}>Add more +</p>
+      ) : null}
       <div className={styled.textAndAction}>
         <textarea
           cols="30"

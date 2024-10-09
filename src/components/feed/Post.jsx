@@ -74,7 +74,10 @@ const Post = ({ postData, currentUser }) => {
           </Link>
         </div>
       </div>
-      <MediaContent media={postData.img} />
+      <MediaContent
+        media={postData.img}
+        likehandle={() => (!liked ? handleLikeToggle(true) : null)}
+      />
       {/* <img src={postData.img} alt="image" className={styles.postMedia} /> */}
       <div className={styles.content}>
         {createPostWithAnchors(postData.content)}
@@ -99,14 +102,12 @@ const Post = ({ postData, currentUser }) => {
           </span>
         </div>
       </div>
-      {/* {openComments ? ( */}
       <CommentModal
         currentUser={currentUser}
         post={postData}
         modalIsOpen={openComments}
         setIsOpen={setOpenComments}
       />
-      {/* ) : null} */}
     </div>
   );
 };

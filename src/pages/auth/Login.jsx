@@ -4,14 +4,20 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import styles from "./authStyled.module.css";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(undefined);
   const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState(undefined);
   const navigate = useNavigate();
 
   const onLogin = (e) => {
     e.preventDefault();
+    if(!email) setEmailError('Email field is required!')
+    if(!password) setPasswordError('Password field is required!')
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -19,9 +25,9 @@ const Login = () => {
         navigate("/");
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        if(error.message.includes('auth/invalid-credential')){
+          toast.error('Email or password is incorrect, please check them again!')
+        }
       });
   };
 
@@ -41,6 +47,7 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
             className={styles.input}
           />
+          {emailError ? <p className={styles.fieldErr}>{emailError}</p> : null}
           <br />
           <br />
 
@@ -51,7 +58,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-
+          {passwordError ? <p className={styles.fieldErr}>{passwordError}</p> : null}
           <div className={styles.subcontainer}>
             <p className={styles.forgotpsd}>
               {" "}

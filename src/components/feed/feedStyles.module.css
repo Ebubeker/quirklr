@@ -211,6 +211,8 @@
 
 .follower img {
   border-radius: 100%;
+  min-width: 40px;
+  min-height: 40px;
   object-fit: cover;
   overflow-clip-margin: unset;
 }
@@ -271,4 +273,35 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.media {
+  position: relative;
+}
+
+.afterDoubleClick {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+}
+
+.noPosts {
+  text-align: center;
+  color: #000000bb;
+}
+
+.noPosts p {
+  margin: 0 70px;
+}
+
+@media (max-width: 750px) {
+  .cardTitle {
+    margin: 30px 0 !important;
+  }
+
+  .userSuggestionList {
+    margin-top: 100px !important;
+  }
 }
